@@ -1,0 +1,32 @@
+name: "Node Verification Service"
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+  metadata: read
+
+jobs:
+  verify:
+    name: Evaluate Applicant Telemetry
+    if: contains(github.event.issue.labels.*.name, 'membership-application')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository Substrates
+        uses: actions/checkout@v4
+
+      - name: Initialize Python Runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Execute Agentic Evaluator
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AMF_ORG_INVITE_TOKEN: ${{ secrets.AMF_ORG_INVITE_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+        run: |
+          python .github/scripts/verify_applicant.py
