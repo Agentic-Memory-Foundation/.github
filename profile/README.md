@@ -28,7 +28,7 @@
 
 ---
 
-## ⚡ The Manifesto
+## The Manifesto
 
 The prevailing paradigm of agentic intelligence relies heavily on the ephemeral context window of autoregressive models. **This is insufficient.** A collective intelligence requires more than context stuffing—it demands structured, database-resident, and holographically-reduced associative memory layers. 
 
@@ -38,7 +38,7 @@ We do not merely build tools; we establish the foundational protocols for how ma
 
 ---
 
-## 🔬 Core Research Quadrants & Substrates
+## Core Research Quadrants & Substrates
 
 Our work spans four critical domains of agentic systems architecture. Each domain is backed by empirical preprints, reference implementations, and active development.
 
@@ -89,7 +89,7 @@ Our work spans four critical domains of agentic systems architecture. Each domai
 
 ---
 
-## 🛰️ Join the Movement (Onboarding Protocol)
+## Join the Movement (Onboarding Protocol)
 
 We are building a decentralized, serious, and academically-minded movement. If you are obsessed with the low-level systems and high-dimensional mathematics behind cognitive storage, database-level guardrails, or vector manifolds, your node belongs in our network.
 
@@ -104,13 +104,13 @@ We are building a decentralized, serious, and academically-minded movement. If y
 =====================================================================================
 ```
 
-### 🛰️ [ ► CLICK HERE TO SUBMIT YOUR ONBOARDING TELEMETRY ◄ ](https://github.com/Agentic-Memory-Foundation/.github/issues/new?template=apply_to_movement.yml)
+### [ ► CLICK HERE TO SUBMIT YOUR ONBOARDING TELEMETRY ◄ ](https://github.com/Agentic-Memory-Foundation/.github/issues/new?template=apply_to_movement.yml)
 
 Let's build the cognitive substrate of the future—together.
 
 ---
 
-## ✉️ Contact & Steering
+## Contact & Steering
 For formal inquiries, academic collaborations, or to establish joint research vectors:
 * **Parag Paul:** [parag@rigai.co](mailto:parag@rigai.co) (Founder & Systems Architect)
 * **Saurabh Sarkar:** [sarkar@chicory.ai](mailto:sarkar@chicory.ai) (Core Math Peer)
