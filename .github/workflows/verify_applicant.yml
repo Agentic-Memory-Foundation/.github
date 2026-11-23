@@ -6,7 +6,7 @@ on:
 
 permissions:
   issues: write
-  metadata: read
+  contents: read
 
 jobs:
   verify:
