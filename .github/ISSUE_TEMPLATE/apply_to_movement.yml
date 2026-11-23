@@ -1,0 +1,58 @@
+name: "Join the Movement"
+description: "Submit a proposal to join the Agentic Memory Foundation as a researcher or contributor."
+title: "[Application]: <Your GitHub Username>"
+labels: ["membership-application"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## AGENTIC MEMORY FOUNDATION — TELEMETRY AND APPLICATION
+        Welcome to the movement. Please fill out the scientific-style telemetry form below to initiate your onboarding sequence.
+  - type: input
+    id: github_handle
+    attributes:
+      label: GitHub Handle
+      description: "Confirm your primary GitHub username."
+      placeholder: "e.g. Octocat"
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Desired Role / Node Assignment
+      description: "How do you wish to contribute to the foundation?"
+      options:
+        - "Systems Architect / DB Policy Engineer"
+        - "Holographic Memory & Math Researcher"
+        - "Vector Routing & Manifold Researcher"
+        - "Agentic Indexing & Tool Developer"
+        - "Community Builder / Movement Advocate"
+    validations:
+      required: true
+  - type: checkboxes
+    id: core_interest
+    attributes:
+      label: Primary Research Focus
+      description: "Select the areas of research that align with your interest."
+      options:
+        - label: "Database-level Agent Policies & Governance (Plane-B)"
+        - label: "Holographic Reduced Representations & High-Dimensional Vector Bundling"
+        - label: "Local Principal Directions / Affine k-flat routing"
+        - label: "Agentic File Naming Structures (Virtual maps / repo-atlas)"
+        - label: "Integration of Tiny LLMs with Memory-Based Inference Engines"
+  - type: textarea
+    id: contributions
+    attributes:
+      label: Contribution Proposal & Tools
+      description: "Which AMF repositories do you want to contribute to, and what tools or features would you like to build?"
+      placeholder: "I want to integrate pg_agent_policy with pg_vector or work on Kashin frame 1-bit quantization for HRR..."
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Scientific / Engineering Background
+      description: "Tell us about your background, publications, projects, or why you are obsessed with agentic memory."
+      placeholder: "Briefly describe your experience with LLMs, vector search, databases, or mathematics..."
+    validations:
+      required: true
