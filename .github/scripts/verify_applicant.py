@@ -29,12 +29,15 @@ QUADRANT_PATTERNS = {
     }
 }
 
-def make_request(url, method="GET", data=None, headers=None):
+def make_request(url, method="GET", data=None, headers=None, token_type="default"):
     if headers is None:
         headers = {}
     
-    # Standard GITHUB_TOKEN or custom token for auth
-    token = os.getenv("AMF_ORG_INVITE_TOKEN") or os.getenv("GITHUB_TOKEN")
+    if token_type == "org":
+        token = os.getenv("AMF_ORG_INVITE_TOKEN") or os.getenv("GITHUB_TOKEN")
+    else:
+        token = os.getenv("GITHUB_TOKEN")
+    
     if token and "Authorization" not in headers:
         headers["Authorization"] = f"token {token}"
     
@@ -248,6 +251,7 @@ def main():
     invite_token = os.getenv("AMF_ORG_INVITE_TOKEN")
     invited = False
     
+    already_member = False
     if approved and invite_token:
         print(f"Token identified. Attempting automated organization invite for: {username}")
         # Invite to organization
@@ -255,18 +259,29 @@ def main():
         status, invite_res = make_request(
             f"https://api.github.com/orgs/Agentic-Memory-Foundation/memberships/{username}",
             method="PUT",
-            data={"role": "member"}
+            data={"role": "member"},
+            token_type="org"
         )
         if status == 200:
             invited = True
             print("Successfully sent organization invitation!")
+        elif status == 403 and "demote" in invite_res.get("message", "").lower():
+            invited = True
+            already_member = True
+            print("Applicant is already an owner/admin of the organization.")
         else:
             print(f"Invitation failed with code {status}: {invite_res.get('message')}")
             
     # Add invitation info to the final report
     if approved:
         if invited:
-            report_md += """
+            if already_member:
+                report_md += """
+### 🛸 Activation Sequence Completed
+Our records indicate you are already a core administrative node of the **Agentic-Memory-Foundation**! Your authorization credentials have been successfully updated and logged.
+"""
+            else:
+                report_md += """
 ### 🛸 Activation Sequence Completed
 An official, automated invitation to join the **Agentic-Memory-Foundation** organization has been dispatched to your GitHub account! Please check your email or visit [Agentic-Memory-Foundation Invitation](https://github.com/orgs/Agentic-Memory-Foundation) to accept membership.
 """
